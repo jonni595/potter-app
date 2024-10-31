@@ -1,0 +1,18 @@
+:root {
+  --primary-color: #212121;
+  --secondary-color: #757575;
+  --tertiary-color: #fff;
+  --accent-color: #2196f3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  font-family: "Mali", cursive;
+}
