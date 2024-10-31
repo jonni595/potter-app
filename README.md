@@ -1,2 +1,2 @@
-# netflick
+# netflick 🎥
 Streaming app
