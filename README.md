@@ -1,2 +1,3 @@
-# netflick 🎥
-Streaming app
+# Netflick 📽️
+
+Streaming App
