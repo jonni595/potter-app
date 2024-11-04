@@ -1,19 +1,32 @@
-import { Card, Navbar } from "../../components";
+import { Characters, Navbar, Houses, Books } from "../../components";
 import "./Home.css";
 
 const HomePage = () => {
   return (
     <div className="home" id="home">
       <Navbar />
-      <div className="grid">
-        <div className="grid__title">
-          <h1>characters</h1>
-        </div>
-        <div className="grid__characters">
-          <div className="container-card">
-            <Card />
-          </div>
-        </div>
+      <div className="characters">
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+      </div>
+      <div className="houses">
+        <Houses />
+        <Houses />
+        <Houses />
+        <Houses />
+      </div>
+      <div className="books">
+        <Books />
       </div>
     </div>
   );

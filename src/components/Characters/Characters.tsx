@@ -1,8 +1,8 @@
-import "./Card.css";
+import "./Characters.css";
 
-const Card = () => {
+const Characters = () => {
   return (
-    <div className="wrapper">
+    <div className="card">
       <div className="card-image">
         <img className="image" src="https://robohash.org/jake" alt="" />
       </div>
@@ -18,4 +18,4 @@ const Card = () => {
   );
 };
 
-export { Card };
+export { Characters };

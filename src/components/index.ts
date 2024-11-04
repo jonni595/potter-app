@@ -1,3 +1,4 @@
-export * from "./Footer/Footer";
 export * from "./Navbar/Navbar";
-export * from "./Card/Card";
+export * from "./Characters/Characters";
+export * from "./Houses/Houses";
+export * from "./Books/Books";
