@@ -35,12 +35,12 @@
 
 .card-description p {
   font-size: 0.9rem;
+  --secondary-color: #6c757d;
+  color: var(--secondary-color);
 }
 
-.card-description ul {
-  list-style: none;
-}
-
-.card-description ul li {
+.card-description i {
   font-size: 0.9rem;
+  --secondary-color: #6c757d;
+  color: var(--secondary-color);
 }

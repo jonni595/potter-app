@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 50px repeat(3, 1fr);
+  grid-template-rows: 50px 1fr 600px 1000px;
   grid-template-columns: auto;
   gap: 8px;
   padding: 8px;

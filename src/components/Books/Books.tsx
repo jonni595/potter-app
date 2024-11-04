@@ -1,22 +1,29 @@
+import { getLimit } from "../../functions/getLimit";
 import "./Books.css";
 
-const Books = () => {
+type Book = {
+  cover: string;
+  description: string;
+  index: number;
+  number: number;
+  originalTitle: string;
+  pages: number;
+  releaseDate: string;
+  title: string;
+};
+
+const Books: React.FC<Book> = ({ cover, title, releaseDate, description }) => {
   return (
     <div className="book">
       <div className="book-image">
-        <img className="image" src="https://robohash.org/jake" alt="" />
+        <img className="image" src={cover} alt={title} />
       </div>
       <div className="book-description">
         <div className="title">
-          <h5>Harry Potter and the Philosopher's Stone</h5>
-          <span>releaseDate</span>
+          <h5>{title}</h5>
+          <span>{releaseDate}</span>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-          autem facere fugit cum, dolore temporibus blanditiis laboriosam
-          inventore commodi laborum mollitia adipisci, doloremque atque pariatur
-          voluptatibus veniam recusandae quaerat illum!
-        </p>
+        <p>{getLimit(description)}</p>
       </div>
     </div>
   );

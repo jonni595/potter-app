@@ -1,18 +1,33 @@
 import "./Characters.css";
 
-const Characters = () => {
+type Character = {
+  birthdate: string;
+  children: string[];
+  fullName: string;
+  hogwartsHouse: string;
+  image: string;
+  index: number;
+  interpretedBy: string;
+  nickname: string;
+};
+
+const Characters: React.FC<Character> = ({
+  fullName,
+  nickname,
+  hogwartsHouse,
+  image,
+  interpretedBy,
+}) => {
   return (
     <div className="card">
       <div className="card-image">
-        <img className="image" src="https://robohash.org/jake" alt="" />
+        <img className="image" src={image} alt={fullName} />
       </div>
       <div className="card-description">
-        <h4>Harry Potter</h4>
-        <p>Harry</p>
-        <p>Hogwarts House</p>
-        <ul>
-          <li>Children</li>
-        </ul>
+        <h4>{fullName}</h4>
+        <p>{nickname}</p>
+        <p>{hogwartsHouse}</p>
+        <i>{interpretedBy}</i>
       </div>
     </div>
   );
