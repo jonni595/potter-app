@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="navbar-right">
         <ul>
           <li>
-            <a href="#home">Home</a>
+            <a href="#home">Characters</a>
           </li>
           <li>
             <a href="#houses">Houses</a>
@@ -35,7 +35,7 @@ const Navbar = () => {
         </ul>
       </div>
       <button className="button" onClick={toggleTheme}>
-        {isDarkMode ? <IoIosSunny /> : <IoIosMoon />}
+        {isDarkMode ? <IoIosMoon /> : <IoIosSunny />}
       </button>
     </nav>
   );
