@@ -12,8 +12,8 @@
 body {
   background-color: var(--background-dark);
   color: var(--text-primary);
-  font-family: "Mali", cursive;
-  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.1;
   font-size: 1.2rem;
   min-height: 100vh;
 }
