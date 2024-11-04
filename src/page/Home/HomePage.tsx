@@ -27,6 +27,9 @@ const HomePage = () => {
       </div>
       <div className="books">
         <Books />
+        <Books />
+        <Books />
+        <Books />
       </div>
     </div>
   );
