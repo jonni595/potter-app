@@ -1,0 +1,42 @@
+.home {
+  width: 100%;
+  max-width: 1900px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 150px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "title" "characters";
+  gap: 8px;
+  padding: 1.1rem;
+}
+
+.grid__title {
+  grid-area: title;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.1rem;
+}
+
+.grid__title h1 {
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.grid__characters {
+  grid-area: characters;
+}
+
+.container-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
