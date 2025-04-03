@@ -11,6 +11,7 @@ Esta aplicación está construida con las siguientes tecnologías modernas:
 - **TailwindCSS**: Framework para estilos CSS altamente personalizable.
 - **Zustand**: Biblioteca para manejar el estado global de manera sencilla y eficiente.
 - **React Icons**: Colección de íconos para embellecer la interfaz.
+- **React Magic Motions**: Biblioteca para animaciones y transiciones en React.
 
 ## Características
 
