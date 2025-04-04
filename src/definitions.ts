@@ -1,15 +1,15 @@
 export interface Characters {
   birthdate: string;
-  children: string[];
+  children?: string[];
   fullName: string;
   hogwartsHouse: HogwartsHouseType;
   image: string;
-  index: number;
+  index?: number;
   interpretedBy: string;
   nickname: string;
 }
 
-type HogwartsHouseType =
+export type HogwartsHouseType =
   | "Gryffindor"
   | "Hufflepuff"
   | "Ravenclaw"

@@ -4,6 +4,7 @@ import BookList from "./BookList";
 import { usePotter } from "../hooks/usePotter";
 import EndpointFilter from "./EndpointFilter";
 import HousesList from "./HousesList";
+import CharactersList from "./CharactersList";
 
 export function Search() {
   const [query, setQuery] = useState("");
@@ -57,9 +58,13 @@ export function Search() {
           )}
           {selected === "Characters" && (
             <div className="flex flex-wrap gap-2">
-              {characters.map((character) => (
-                <div key={character.index}>{character.fullName}</div>
-              ))}
+              {characters
+                .filter((character) =>
+                  character.fullName.toLowerCase().includes(query.toLowerCase())
+                )
+                .map((character) => (
+                  <CharactersList key={character.index} {...character} />
+                ))}
             </div>
           )}
         </div>
