@@ -26,7 +26,7 @@ export interface Houses {
 
 export interface Books {
   cover: string;
-  description: string;
+  description?: string;
   index?: number;
   number?: number;
   originalTitle?: string;

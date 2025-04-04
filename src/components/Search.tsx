@@ -34,7 +34,6 @@ export function Search() {
                 title={book.title}
                 releaseDate={book.releaseDate}
                 cover={book.cover}
-                description={book.description}
               />
             ))}
         </div>
