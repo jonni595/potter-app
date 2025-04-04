@@ -1,4 +1,3 @@
-import React from "react";
 import type { Houses } from "../definitions";
 
 const tailwindColors: Record<string, string> = {
@@ -19,11 +18,10 @@ function HousesList({ house, founder, colors, emoji, animal }: Houses) {
       <p className="text-xs text-slate-400">{founder}</p>
       <div className="flex gap-1">
         {colors.map((color) => (
-          <React.Fragment key={color}>
-            <div
-              className={`h-4 w-4 rounded-full ${tailwindColors[color] || ""}`}
-            ></div>
-          </React.Fragment>
+          <div
+            key={color}
+            className={`h-4 w-4 rounded-full ${tailwindColors[color] || ""}`}
+          ></div>
         ))}
       </div>
       <p className="text-xs text-slate-400">{animal}</p>

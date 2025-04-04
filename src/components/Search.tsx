@@ -27,9 +27,9 @@ export function Search() {
       <h4 className="font-bold text-xl mt-4">My {selected}</h4>
       <EndpointFilter onSelected={setSelected} />
       <MagicMotion>
-        <div className="flex flex-wrap gap-2">
+        <div>
           {selected === "Books" && (
-            <>
+            <div className="flex flex-wrap gap-2">
               {books
                 .filter((book) =>
                   book.title.toLowerCase().includes(query.toLowerCase())
@@ -42,10 +42,10 @@ export function Search() {
                     cover={book.cover}
                   />
                 ))}
-            </>
+            </div>
           )}
           {selected === "Houses" && (
-            <>
+            <div className="flex flex-wrap gap-2">
               {houses
                 .filter((house) =>
                   house.house.toLowerCase().includes(query.toLowerCase())
@@ -53,14 +53,14 @@ export function Search() {
                 .map((house) => (
                   <HousesList key={house.index} {...house} />
                 ))}
-            </>
+            </div>
           )}
           {selected === "Characters" && (
-            <>
+            <div className="flex flex-wrap gap-2">
               {characters.map((character) => (
                 <div key={character.index}>{character.fullName}</div>
               ))}
-            </>
+            </div>
           )}
         </div>
       </MagicMotion>
