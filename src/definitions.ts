@@ -21,7 +21,7 @@ export interface Houses {
   emoji: string;
   founder: string;
   house: string;
-  index: number;
+  index?: number;
 }
 
 export interface Books {
