@@ -12,7 +12,7 @@ const tailwindColors: Record<string, string> = {
 
 function HousesList({ house, founder, colors, emoji, animal }: Houses) {
   return (
-    <div className="flex flex-col w-44 justify-around items-center gap-1 p-2 bg-slate-800 text-white">
+    <div className="flex flex-col w-44 justify-around items-center gap-1 p-2 bg-slate-800 rounded-md shadow-sm shadow-slate-600">
       <h5 className="font-bold text-center text-lg text-wrap">{house}</h5>
       <span className="text-2xl">{emoji}</span>
       <p className="text-xs text-slate-400">{founder}</p>
