@@ -6,7 +6,7 @@ interface PotterState {
   setBooks: (books: Books[]) => void;
 }
 
-export const usePotter = create<PotterState>()((set) => ({
+export const PotterStore = create<PotterState>()((set) => ({
   books: [],
   setBooks: (books) => set({ books }),
 }));

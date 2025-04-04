@@ -27,10 +27,10 @@ export interface Houses {
 export interface Books {
   cover: string;
   description: string;
-  index: number;
-  number: number;
-  originalTitle: string;
-  pages: number;
+  index?: number;
+  number?: number;
+  originalTitle?: string;
+  pages?: number;
   releaseDate: string;
   title: string;
 }
