@@ -4,16 +4,24 @@ import { PotterStore } from "../store/PotterStore";
 export function usePotter() {
   const { books, setBooks } = PotterStore();
 
-  useEffect(() => {
+  async function getBooks() {
     try {
-      localStorage.setItem("books", JSON.stringify(books));
+      const response = await fetch(
+        "https://potterapi-fedeperin.vercel.app/en/books"
+      );
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+      const data = await response.json();
+      setBooks(data);
     } catch (error) {
-      throw new Error("Error al guardar en el almacenamiento local " + error);
+      throw new Error(`Error fetching books: ${error}`);
     }
-    fetch("https://potterapi-fedeperin.vercel.app/en/books")
-      .then((res) => res.json())
-      .then((data) => setBooks(data));
-  }, [setBooks, books]);
+  }
+
+  useEffect(() => {
+    getBooks();
+  }, []);
 
   return { books };
 }
