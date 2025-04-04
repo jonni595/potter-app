@@ -2,26 +2,36 @@ import { useEffect } from "react";
 import { PotterStore } from "../store/PotterStore";
 
 export function usePotter() {
-  const { books, setBooks } = PotterStore();
+  const { books, houses, characters, setBooks, setHouses, setCharacters } =
+    PotterStore();
 
-  async function getBooks() {
+  async function fetchData() {
+    const endpoints = [
+      "https://potterapi-fedeperin.vercel.app/en/books",
+      "https://potterapi-fedeperin.vercel.app/en/houses",
+      "https://potterapi-fedeperin.vercel.app/en/characters",
+    ];
     try {
-      const response = await fetch(
-        "https://potterapi-fedeperin.vercel.app/en/books"
-      );
-      if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.status}`);
+      const [booksResponse, housesResponse, charactersResponse] =
+        await Promise.all(endpoints.map((endpoint) => fetch(endpoint)));
+      if (!booksResponse.ok || !housesResponse.ok || !charactersResponse.ok) {
+        throw new Error("Error fetching data");
       }
-      const data = await response.json();
-      setBooks(data);
-    } catch (error) {
-      throw new Error(`Error fetching books: ${error}`);
+      const booksData = await booksResponse.json();
+      const housesData = await housesResponse.json();
+      const charactersData = await charactersResponse.json();
+
+      setBooks(booksData);
+      setHouses(housesData);
+      setCharacters(charactersData);
+    } catch (err) {
+      throw new Error("Error fetching data: " + err);
     }
   }
 
   useEffect(() => {
-    getBooks();
+    fetchData();
   }, []);
 
-  return { books };
+  return { books, houses, characters };
 }
