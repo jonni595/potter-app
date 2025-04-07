@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { PotterStore } from "../store/PotterStore";
 
 export function usePotter() {
   const { books, houses, characters, setBooks, setHouses, setCharacters } =
     PotterStore();
+  const [isLoading, setIsLoading] = useState(true);
 
   async function fetchData() {
+    setIsLoading(true);
     const endpoints = [
       "https://potterapi-fedeperin.vercel.app/en/books",
       "https://potterapi-fedeperin.vercel.app/en/houses",
@@ -26,12 +28,18 @@ export function usePotter() {
       setCharacters(charactersData);
     } catch (err) {
       throw new Error("Error fetching data: " + err);
+    } finally {
+      setIsLoading(false);
     }
   }
 
   useEffect(() => {
-    fetchData();
+    const timer = setTimeout(() => {
+      fetchData();
+    }, 500);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  return { books, houses, characters };
+  return { books, houses, characters, isLoading };
 }

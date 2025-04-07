@@ -6,11 +6,12 @@ import EndpointFilter from "./EndpointFilter";
 import HousesList from "./HousesList";
 import CharactersList from "./CharactersList";
 import InputText from "./InputText";
+import Skeleton from "./Skeleton";
 
 export function Search() {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState("Books");
-  const { books, houses, characters } = usePotter();
+  const { books, houses, characters, isLoading } = usePotter();
 
   return (
     <div
@@ -26,13 +27,15 @@ export function Search() {
         <div>
           {selected === "Books" && (
             <div className="flex flex-wrap gap-2">
-              {books
-                .filter((book) =>
-                  book.title.toLowerCase().includes(query.toLowerCase())
-                )
-                .map((book) => (
-                  <BookList key={book.index} {...book} />
-                ))}
+              {isLoading ? (
+                <Skeleton />
+              ) : (
+                books
+                  .filter((book) =>
+                    book.title.toLowerCase().includes(query.toLowerCase())
+                  )
+                  .map((book) => <BookList key={book.index} {...book} />)
+              )}
             </div>
           )}
           {selected === "Houses" && (
