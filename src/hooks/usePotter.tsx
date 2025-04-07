@@ -5,6 +5,7 @@ export function usePotter() {
   const { books, houses, characters, setBooks, setHouses, setCharacters } =
     PotterStore();
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   async function fetchData() {
     setIsLoading(true);
@@ -27,7 +28,9 @@ export function usePotter() {
       setHouses(housesData);
       setCharacters(charactersData);
     } catch (err) {
-      throw new Error("Error fetching data: " + err);
+      if (err instanceof Error) {
+        setError(err.message);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -41,5 +44,5 @@ export function usePotter() {
     return () => clearTimeout(timer);
   }, []);
 
-  return { books, houses, characters, isLoading };
+  return { books, houses, characters, isLoading, error };
 }

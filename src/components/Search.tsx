@@ -11,7 +11,14 @@ import Skeleton from "./Skeleton";
 export function Search() {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState("Books");
-  const { books, houses, characters, isLoading } = usePotter();
+  const { books, houses, characters, isLoading, error } = usePotter();
+
+  if (error)
+    return (
+      <div className="text-red-500 text-center bg-red-100 p-2 rounded-lg">
+        {error}
+      </div>
+    );
 
   return (
     <div
